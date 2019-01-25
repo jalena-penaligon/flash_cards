@@ -18,12 +18,12 @@ class TurnTest < Minitest::Test
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-    assert card_1, deck.cards
-    assert card_2, deck.cards
-    assert card_3, deck.cards
+    assert_equal card_1, deck.cards[0]
+    assert_equal card_2, deck.cards[1]
+    assert_equal card_3, deck.cards[2]
   end
 
-  def test_there_are_3_cards
+  def test_you_can_count_num_of_cards
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
@@ -32,30 +32,16 @@ class TurnTest < Minitest::Test
     assert_equal 3, deck.count
   end
 
-  def test_there_are_2_stem_category
+  def test_organize_cards_within_categories
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-    assert_equal 2, deck.cards_in_category
+    assert_equal [card_1], deck.cards_in_category(:Geography)
+    assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
+    assert_equal [], deck.cards_in_category(:Pop_Culture)
+
   end
 
-  def test_there_is_1_geography_category
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    cards = [card_1, card_2, card_3]
-    deck = Deck.new(cards)
-    assert_equal 1, deck.cards_in_category
-  end
-
-  def test_there_is_0_pop_culture_category
-    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-    cards = [card_1, card_2, card_3]
-    deck = Deck.new(cards)
-    assert_equal 0, deck.cards_in_category
-  end
 end

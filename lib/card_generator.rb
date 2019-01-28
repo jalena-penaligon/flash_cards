@@ -1,17 +1,22 @@
 class CardGenerator
-  attr_reader :filename, :card_number, :cards
+  attr_reader :filename,
+              :question,
+              :answer,
+              :category
   def initialize(filename)
     @filename = filename
-    @card_number = 1
+    @question = question
+    @answer = answer
+    @category = category
   end
 
   def cards
     lines = File.readlines filename
-    lines.each do |line|
-      columns = line.split("''")
+    lines.map do |line|
+      columns = line.chomp.split(",")
       @question = columns[0]
       @answer = columns[1]
-      @category = columns[2]
+      @category = columns[2].to_sym
       card_1 = Card.new(@question, @answer, @category)
     end
   end

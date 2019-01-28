@@ -37,4 +37,15 @@ class Round
     100.0 * (number_correct_by_category(category).count.to_f / deck.cards_in_category(category).count.to_f)
   end
 
+  def start
+    5.times do
+      puts "This is question #{deck.cards.index(current_card) + 1} out of #{deck.cards.count}."
+      puts "Question: " + current_card.question
+      guess = gets.chomp.to_s
+      guess.downcase!
+      new_turn = take_turn(guess)
+      puts new_turn.feedback
+    end
+  end
+
 end

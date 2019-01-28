@@ -38,7 +38,7 @@ class Round
   end
 
   def start
-    5.times do
+    deck.cards.count.times do
       puts "This is question #{deck.cards.index(current_card) + 1} out of #{deck.cards.count}."
       puts "Question: " + current_card.question
       guess = gets.chomp.to_s

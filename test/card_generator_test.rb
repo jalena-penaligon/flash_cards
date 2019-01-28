@@ -15,15 +15,13 @@ class CardGeneratorTest < Minitest::Test
     assert_equal 'cards.txt', filename
   end
 
-  def test_it_adds_each_line_as_card_objects
+  def test_assert_correct_cards_inputted
     filename = "cards.txt"
     card = CardGenerator.new(filename).cards
-    binding.pry
-    assert_equal [card_1, card_2, card_3, card_4, card_4, card_6], CardGenerator.new(filename).cards
+    assert_equal "10", card[0].answer
+    assert_equal "What is Rachel's favorite animal?", card[1].question
+    assert_equal :"Turing Staff", card[2].category
   end
 
-  def test_are_cards_stored_in_array
-    skip
-  end
 
 end

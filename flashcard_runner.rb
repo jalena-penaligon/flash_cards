@@ -8,8 +8,10 @@ card_2 = Card.new("You may say that I'm a dreamer. But I'm not the only ____", "
 card_3 = Card.new("People always told me be careful of what you do. And don't go around breaking young girls' _____", "hearts", :Pop)
 card_4 = Card.new("Is this the real life? Is this just fantasy? Caught in a landslide, no escape from  ____", "reality", :Classic_Rock)
 card_5 = Card.new("Remember to let her into your heart, then you can start to make it _____", "better", :Soft_Rock)
+card_6 = Card.new("He's tellin' me more and more about some useless information, supposed to fire my _____", "imagination", :Hard_Rock)
 
-cards = [card_1, card_2, card_3, card_4, card_5]
+
+cards = [card_1, card_2, card_3, card_4, card_5, card_6]
 deck = Deck.new(cards)
 round = Round.new(deck)
 
@@ -23,3 +25,4 @@ puts "Alternative: #{round.percent_correct_by_category(:Alternative).to_i}%"
 puts "Soft Rock: #{round.percent_correct_by_category(:Soft_Rock).to_i}%"
 puts "Classic Rock: #{round.percent_correct_by_category(:Classic_Rock).to_i}%"
 puts "Pop: #{round.percent_correct_by_category(:Pop).to_i}%"
+puts "Hard Rock: #{round.percent_correct_by_category(:Hard_Rock).to_i}%"

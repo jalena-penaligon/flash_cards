@@ -2,6 +2,7 @@ require './lib/card'
 require './lib/deck'
 require './lib/round'
 require './lib/turn'
+require '.lib/card_generator'
 
 card_1 = Card.new("With the lights out, it's less dangerous. Here we are now, entertain us. I feel stupid and ____", "contagious", :Alternative)
 card_2 = Card.new("You may say that I'm a dreamer. But I'm not the only ____", "one", :Soft_Rock)
